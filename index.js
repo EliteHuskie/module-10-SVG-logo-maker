@@ -57,3 +57,26 @@ Promise.resolve()
 
         // Save the SVG markup to a file
         fs.writeFileSync('logo.svg', svg, 'utf-8');
+
+        // Convert the SVG file to an image
+        svg2img(svg, { width: 300, height: 200 }, (error, buffer) => {
+          if (error) {
+            console.error('Failed to generate image:', error);
+            return;
+          }
+
+          // Save the image to a file
+          fs.writeFileSync('logo.png', buffer);
+          // Console log when the logo is generated
+          console.log('Generated logo.svg');
+        });
+      })
+      // Catch error and log to console if application fails to run
+      .catch((error) => {
+        console.error('Failed to run the application:', error);
+      });
+  })
+  // Catch error and log to console if dynamic import of inquirer fails
+  .catch((error) => {
+    console.error('Failed to dynamically import inquirer:', error);
+  });
