@@ -36,14 +36,14 @@ Promise.resolve()
         let shapeInstance;
 
         // Selected shape class based on user input
-        if (shape === 'circle') {
-          shapeInstance = new Circle();
-        } else if (shape === 'square') {
-          shapeInstance = new Square();
-        } else if (shape === 'triangle') {
-          shapeInstance = new Triangle();
+        if (shape.toLowerCase() === 'circle') {
+  shapeInstance = new Circle();
+        } else if (shape.toLowerCase() === 'square') {
+        shapeInstance = new Square();
+        } else if (shape.toLowerCase() === 'triangle') {
+        shapeInstance = new Triangle();
         }
-
+        
         // Set the color of the shape
         shapeInstance.setColor(shapeColor);
 
