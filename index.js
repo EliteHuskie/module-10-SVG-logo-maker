@@ -31,3 +31,29 @@ Promise.resolve()
           name: 'shapeColor',
           message: 'Enter the shape color (keyword or hexadecimal number):',
         },
+      ])
+      .then(({ text, textColor, shape, shapeColor }) => {
+        let shapeInstance;
+
+        // Selected shape class based on user input
+        if (shape === 'circle') {
+          shapeInstance = new Circle();
+        } else if (shape === 'square') {
+          shapeInstance = new Square();
+        } else if (shape === 'triangle') {
+          shapeInstance = new Triangle();
+        }
+
+        // Set the color of the shape
+        shapeInstance.setColor(shapeColor);
+
+        // Generate the SVG markup
+        const svg = `
+          <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+            ${shapeInstance.render()}
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${textColor}" font-size="36">${text}</text>
+          </svg>
+        `;
+
+        // Save the SVG markup to a file
+        fs.writeFileSync('logo.svg', svg, 'utf-8');
