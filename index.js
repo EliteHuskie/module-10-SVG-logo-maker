@@ -1,4 +1,4 @@
-// Constants for File System (FS), svg2img and Cirlce, Square or Triangle from Shapes in Lib
+// Constants for File System (FS), svg2img and Circle, Square, Triangle from Shapes in Lib
 const fs = require('fs');
 const svg2img = require('svg2img');
 const { Circle, Square, Triangle } = require('./lib/shapes');
@@ -38,20 +38,20 @@ Promise.resolve()
 
         // Selected shape class based on user input
         if (shape.toLowerCase() === 'circle') {
-        shapeInstance = new Circle();
+          shapeInstance = new Circle();
         } else if (shape.toLowerCase() === 'square') {
-        shapeInstance = new Square();
+          shapeInstance = new Square();
         } else if (shape.toLowerCase() === 'triangle') {
-        shapeInstance = new Triangle();
+          shapeInstance = new Triangle();
         }
-        
+
         // Set the color of the shape
         shapeInstance.setColor(shapeColor);
 
         // Generate the SVG markup
         const svg = `
           <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-            ${shapeInstance.render()}
+            ${shapeInstance.render(text)}
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="${textColor}" font-size="36">${text}</text>
           </svg>
         `;
