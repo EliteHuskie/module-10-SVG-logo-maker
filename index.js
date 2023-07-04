@@ -37,7 +37,7 @@ Promise.resolve()
 
         // Selected shape class based on user input
         if (shape.toLowerCase() === 'circle') {
-  shapeInstance = new Circle();
+        shapeInstance = new Circle();
         } else if (shape.toLowerCase() === 'square') {
         shapeInstance = new Square();
         } else if (shape.toLowerCase() === 'triangle') {
