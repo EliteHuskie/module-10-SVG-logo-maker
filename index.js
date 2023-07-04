@@ -2,6 +2,7 @@
 const fs = require('fs');
 const svg2img = require('svg2img');
 const { Circle, Square, Triangle } = require('./lib/shapes');
+const { join } = require('path');
 
 // Dynamic import of inquirer
 Promise.resolve()
@@ -55,8 +56,9 @@ Promise.resolve()
           </svg>
         `;
 
-        // Save the SVG markup to a file
-        fs.writeFileSync('logo.svg', svg, 'utf-8');
+        // Save the SVG markup to a file in the "examples" folder
+        const svgPath = join(__dirname, 'examples', 'logo.svg');
+        fs.writeFileSync(svgPath, svg, 'utf-8');
 
         // Convert the SVG file to an image
         svg2img(svg, { width: 300, height: 200 }, (error, buffer) => {
@@ -65,10 +67,11 @@ Promise.resolve()
             return;
           }
 
-          // Save the image to a file
-          fs.writeFileSync('logo.png', buffer);
+          // Save the image to a file in the "examples" folder
+          const imagePath = join(__dirname, 'examples', 'logo.png');
+          fs.writeFileSync(imagePath, buffer);
           // Console log when the logo is generated
-          console.log('Generated logo.svg');
+          console.log('Generated logo.svg and logo.png in the "examples" folder');
         });
       })
       // Catch error and log to console if application fails to run
