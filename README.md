@@ -42,6 +42,8 @@ Tests can be ran using the 'npx jest' in the command line
 
 These tests will ensure render() method returns correct SVG string for each shape (Circle, Square and Triangle)
 
+Demo can be viewed at: https://drive.google.com/file/d/1821nNBHLmOhgTIzVPK4pehGcKtENMqDe/view?usp=sharing
+
 ## License
 
 This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
